@@ -1,0 +1,14 @@
+---
+
+### used for ansible-pull only
+- hosts: localhost
+  gather_facts: yes
+
+  tasks:
+    #~ - name: print ansible_hostname - just for demo
+      #~ debug:
+        #~ msg: "{{ ansible_hostname }}"
+
+
+- name: Chromebook
+  import_playbook: chromebook.yml

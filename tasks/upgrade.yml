@@ -1,0 +1,11 @@
+---
+
+- name: Allow release-info to change for APT repositories
+  shell: apt-get update -y --allow-releaseinfo-change
+  args:
+    warn: false
+  
+- name: Update and upgrade apt packages
+  apt:
+    upgrade: dist
+    update_cache: yes

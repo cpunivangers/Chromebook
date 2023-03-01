@@ -1,0 +1,8 @@
+Package: appslinuxcb
+Version: 230206.1007
+Section: base
+Priority: optional
+Architecture: all
+Depends: bash, ansible, zenity
+Maintainer: Christian Pottier <christian.pottier@univ-angers.fr>
+Description: Applications linux avec ansible-pull sur Chromebook

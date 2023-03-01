@@ -1,0 +1,95 @@
+---
+
+# Debian 11 pour Chromebook
+# 19/09/2022 Christian.pottier@univ-angers.fr
+
+- hosts: localhost
+  become: true
+  tasks:
+
+  - include: tasks/base_depots.yml
+  
+  - include: tasks/upgrade.yml
+
+  - name: locale fr
+    locale_gen:
+      name: fr_FR.UTF-8
+      state: present
+      
+  - name: change default locale to fr_FR.UTF-8
+    command: localectl set-locale LANG=fr_FR.UTF-8 LANGUAGE="fr_FR"
+
+
+  - name: outils de base
+    apt:
+      state: present
+      name:
+      - bash-completion
+      - command-not-found
+      - wget
+      - curl
+      - zenity
+
+  - name: Internet 
+    apt:
+      state: present
+      name:
+      - firefox-esr
+      - firefox-esr-l10n-fr
+
+  - include: tasks/libreoffice_bpo.yml
+  
+  - name: Bureautique 
+    apt:
+      state: present
+      name:
+      - hyphen-fr
+      - ttf-mscorefonts-installer
+      - fonts-liberation
+      - fonts-crosextra-carlito
+      - fonts-crosextra-caladea
+      - fonts-linex
+
+  - include: tasks/ghostwriter_bpo.yml 
+      
+  - include: tasks/policevista.yml
+
+  - include: tasks/grammalecte.yml
+
+  - include: tasks/xournalpp_bpo.yml
+
+  - include: tasks/onlyoffice.yml
+
+  - name: Graphisme bpo
+    apt:
+      state: latest
+      name:
+      # Outil Graphisme et svg
+      - inkscape
+      default_release: bullseye-backports
+
+  - name: son video
+    apt:
+      state: latest
+      name:
+      - audacity
+      
+  - name: interface graphique Logiciels
+    apt:
+      state: latest
+      name:
+      - gnome-software
+      
+  - name: home Utilisateur
+    find:
+      paths: "/home/"
+      recurse: yes
+      file_type: directory
+    register: find_matches
+
+  - name: Lien vers usb {{ find_matches.files[0].path }}
+    file:
+      src: "/mnt/chromeos/removable/USB\ Drive"
+      dest: "{{ find_matches.files[0].path }}/usb"
+      state: link
+      force: yes      

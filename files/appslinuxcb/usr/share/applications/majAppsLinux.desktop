@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=majAppsLinux
+Comment=mise à jour des applications linux - ansible
+Exec=/usr/local/bin/appslinuxcb.sh
+Icon=/usr/share/icons/Adwaita/256x256/apps/system-software-update.png
+Terminal=false
+Type=Application
+Categories=Utility;
+StartupNotify=false

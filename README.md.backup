@@ -1,0 +1,46 @@
+# Chromebook
+ansible-pull pour chromebook
+Installation de logiciels Linux sur le Chromebook
+
+## Pré-requis
+
+- Chromebook >= 64 Go à jour (conteneur Linux Debian Bulseye)
+- Environement Linux activé
+
+## Installation
+
+- Télécharger le paquet https://github.com/cpunivangers/Chromebook/blob/main/files/appslinuxcb.deb
+- Cliquer sur le paquet pour l'installation avec Linux
+
+**Suivant la puissance du Chromebook, le temps d'installation des applications est plus ou moins long(+-2h).**  
+
+-  ASUS Chromebook (C423) [29/10/2021] **+2 h**  
+cpu Intel Celeron N3350 @ 1.10GHz (cpubenchmark 1111)  
+ram 8Go  
+Disque dur 64GB EMMC  
+
+- LENOVO 14e Chromebook [22/03/2021]  
+cpu AMD 7th Gen A4-9120C Processor(A4-9120C) (cpubenchmark 825)  
+ram 8Go  
+Disque dur 64GB EMMC  
+
+**Le premier lancement d'une application Linux peut-être très long (+-1mn)**
+
+## Logiciels installés :
+
+### Internet :
+* Firefox ESR
+
+### Bureautique :
+* Libreoffice
+* OnlyOffice
+* Ghostwriter
+* xournal++
+
+### Graphisme :
+* Inkscape
+
+### Son Vidéo :
+* Audacity
+
+...
